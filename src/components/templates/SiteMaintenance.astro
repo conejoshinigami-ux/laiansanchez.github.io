@@ -1,0 +1,59 @@
+---
+import Background from '../assets/backgrounds.svg';
+---
+
+<style define:vars={{ BackgroundSrc: `url(${Background})` }}>
+  .maintenance-page {
+    background-image: var(--BackgroundSrc);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: brightness(0.7);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: #e5e7eb;
+    margin-top: 1rem;
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+  }
+
+  .content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+  }
+</style>
+
+<div class="maintenance-page relative">
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>🚧 Site Under Maintenance 🚧</h1>
+    <p>
+      We are currently performing scheduled maintenance.<br />
+      Please check back later — we’ll be back soon!
+    </p>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+---
+
+<html lang="es">
+  <head><meta charset="utf-8"><title>Habilidades | LuisDev</title></head>
+  <body>
+    <Navbar />
+    <main class="max-w-7xl mx-auto px-8 pt-40 pb-20 space-y-20">
+      <h1 class="text-4xl font-bold text-center mb-12">Mis Habilidades</h1>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+        <div class="card p-5 text-center"><img src="/assets/html.png" class="w-12 mx-auto mb-3"/><h3>HTML5</h3></div>
+        <div class="card p-5 text-center"><img src="/assets/css.png" class="w-12 mx-auto mb-3"/><h3>CSS / Tailwind</h3></div>
+        <div class="card p-5 text-center"><img src="/assets/js.png" class="w-12 mx-auto mb-3"/><h3>JavaScript</h3></div>
+        <div class="card p-5 text-center"><img src="/assets/react.png" class="w-12 mx-auto mb-3"/><h3>React</h3></div>
+        <div class="card p-5 text-center"><img src="/assets/astro.png" class="w-12 mx-auto mb-3"/><h3>Astro</h3></div>
+        <div class="card p-5 text-center"><img src="/assets/git.png" class="w-12 mx-auto mb-3"/><h3>Git / GitHub</h3></div>
+        <div class="card p-5 text-center"><img src="/assets/node.png" class="w-12 mx-auto mb-3"/><h3>Node.js</h3></div>
+        <div class="card p-5 text-center"><img src="/assets/figma.png" class="w-12 mx-auto mb-3"/><h3>Figma</h3></div>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

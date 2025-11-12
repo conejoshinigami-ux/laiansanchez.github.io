@@ -1,0 +1,43 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Proyectos | LuisDev</title>
+  </head>
+  <body>
+    <Navbar />
+    <main class="max-w-7xl mx-auto px-8 pt-40 pb-20 space-y-20">
+      <h1 class="text-4xl font-bold text-center mb-12">Proyectos Destacados</h1>
+
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="card overflow-hidden">
+          <img src="/assets/proyecto1.jpg" class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Portfolio Personal</h3>
+            <p class="text-gray-400 text-sm">Diseño moderno con dark mode.</p>
+          </div>
+        </div>
+        <div class="card overflow-hidden">
+          <img src="/assets/proyecto2.jpg" class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">App de Finanzas</h3>
+            <p class="text-gray-400 text-sm">Gestión inteligente de ingresos y gastos.</p>
+          </div>
+        </div>
+        <div class="card overflow-hidden">
+          <img src="/assets/proyecto3.jpg" class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Dashboard Empresarial</h3>
+            <p class="text-gray-400 text-sm">Panel con datos en tiempo real.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

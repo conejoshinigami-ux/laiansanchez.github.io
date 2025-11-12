@@ -1,8 +1,9 @@
 ---
-const { name, level } = Astro.props;
+const { img, name, level, desc } = Astro.props;
 ---
-
-<div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
-  <h3 class="text-xl font-semibold">{name}</h3>
-  <p class="text-teal-600">{level}</p>
-</div>
+<article class="card text-center">
+  <img src={img} alt={name} class="w-20 h-20 mx-auto rounded-lg mb-4 object-cover" />
+  <h3 class="text-lg font-semibold">{name}</h3>
+  <p class="text-sm text-muted">{level}</p>
+  <p class="mt-2 text-sm">{desc}</p>
+</article>

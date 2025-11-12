@@ -1,0 +1,31 @@
+---
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import "../../styles/global.css";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dashboard Empresarial | LuisDev</title>
+  </head>
+  <body class="bg-black text-gray-100">
+    <Navbar />
+
+    <main class="max-w-4xl mx-auto px-6 pt-36 pb-20">
+      <h1 class="text-3xl font-bold text-cyan-400 mb-6">Dashboard Empresarial</h1>
+      <img
+        src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=800&q=80"
+        alt="Dashboard Empresarial"
+        class="rounded-lg shadow-lg mb-6"
+      />
+      <p class="text-gray-300 leading-relaxed">
+        Un panel interactivo desarrollado para visualizar métricas empresariales clave. 
+        Incluye estadísticas en tiempo real, comparaciones de rendimiento, control de usuarios 
+        y diseño adaptativo. Ideal para pequeñas y medianas empresas que buscan una visión general clara de sus operaciones.
+      </p>
+    </main>
+
+    <Footer />
+  </body>
+</html>

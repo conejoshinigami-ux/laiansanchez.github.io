@@ -9,35 +9,81 @@ import "../styles/global.css";
     <meta charset="utf-8" />
     <title>Proyectos | LuisDev</title>
   </head>
-  <body>
+  <body class="bg-black text-gray-100">
     <Navbar />
-    <main class="max-w-7xl mx-auto px-8 pt-40 pb-20 space-y-20">
-      <h1 class="text-4xl font-bold text-center mb-12">Proyectos Destacados</h1>
 
-      <div class="grid md:grid-cols-3 gap-10">
-        <div class="card overflow-hidden">
-          <img src="/assets/proyecto1.jpg" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2">Portfolio Personal</h3>
-            <p class="text-gray-400 text-sm">Diseño moderno con dark mode.</p>
-          </div>
+    <main class="max-w-6xl mx-auto px-6 pt-36 pb-24">
+      <h1 class="text-4xl font-bold text-center text-cyan-400 mb-14 tracking-wide">
+        Mis Proyectos
+      </h1>
+
+      <!-- Contenedor horizontal -->
+      <section class="flex flex-wrap justify-center gap-10">
+        <!-- Proyecto 1 -->
+        <div
+          class="bg-gray-900/70 border border-white/10 rounded-xl p-4 w-64 hover:-translate-y-2 transition-all duration-300 hover:shadow-cyan-500/20 text-center"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1611095973515-5e41e0c9c3f9?auto=format&fit=crop&w=400&q=80"
+            alt="Portfolio Personal"
+            class="rounded-lg mb-3 h-36 w-full object-cover"
+          />
+          <h3 class="text-lg font-semibold text-cyan-400">Portfolio Personal</h3>
+          <p class="text-sm text-gray-400 mt-1 mb-3">
+            Mi web personal moderna con animaciones suaves, modo oscuro y secciones dinámicas.
+          </p>
+          <a
+            href="/proyectos/portfolio"
+            class="inline-block bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-sm font-medium px-4 py-2 rounded-md hover:from-purple-500 hover:to-cyan-500 transition-all duration-300"
+          >
+            Ver más
+          </a>
         </div>
-        <div class="card overflow-hidden">
-          <img src="/assets/proyecto2.jpg" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2">App de Finanzas</h3>
-            <p class="text-gray-400 text-sm">Gestión inteligente de ingresos y gastos.</p>
-          </div>
+
+        <!-- Proyecto 2 -->
+        <div
+          class="bg-gray-900/70 border border-white/10 rounded-xl p-4 w-64 hover:-translate-y-2 transition-all duration-300 hover:shadow-cyan-500/20 text-center"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=400&q=80"
+            alt="App Finanzas"
+            class="rounded-lg mb-3 h-36 w-full object-cover"
+          />
+          <h3 class="text-lg font-semibold text-cyan-400">App de Finanzas</h3>
+          <p class="text-sm text-gray-400 mt-1 mb-3">
+            Aplicación moderna para gestionar ingresos, gastos y estadísticas financieras.
+          </p>
+          <a
+            href="/proyectos/finanzas"
+            class="inline-block bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-sm font-medium px-4 py-2 rounded-md hover:from-purple-500 hover:to-cyan-500 transition-all duration-300"
+          >
+            Ver más
+          </a>
         </div>
-        <div class="card overflow-hidden">
-          <img src="/assets/proyecto3.jpg" class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2">Dashboard Empresarial</h3>
-            <p class="text-gray-400 text-sm">Panel con datos en tiempo real.</p>
-          </div>
+
+        <!-- Proyecto 3 -->
+        <div
+          class="bg-gray-900/70 border border-white/10 rounded-xl p-4 w-64 hover:-translate-y-2 transition-all duration-300 hover:shadow-cyan-500/20 text-center"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=400&q=80"
+            alt="Dashboard Empresarial"
+            class="rounded-lg mb-3 h-36 w-full object-cover"
+          />
+          <h3 class="text-lg font-semibold text-cyan-400">Dashboard Empresarial</h3>
+          <p class="text-sm text-gray-400 mt-1 mb-3">
+            Panel interactivo con métricas en tiempo real y diseño minimalista para empresas.
+          </p>
+          <a
+            href="/proyectos/dashboard"
+            class="inline-block bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-sm font-medium px-4 py-2 rounded-md hover:from-purple-500 hover:to-cyan-500 transition-all duration-300"
+          >
+            Ver más
+          </a>
         </div>
-      </div>
+      </section>
     </main>
+
     <Footer />
   </body>
 </html>

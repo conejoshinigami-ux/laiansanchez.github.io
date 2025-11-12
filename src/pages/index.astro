@@ -7,99 +7,127 @@ import Footer from "../components/Footer.astro";
 <html lang="es">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio | LuisDev</title>
+
     <style>
-      /* Animaciones personalizadas */
       @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(40px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
+
       .fade-up {
         opacity: 0;
         animation: fadeUp 1s ease-out forwards;
       }
-      section.fade-up:nth-of-type(1) { animation-delay: 0.1s; }
-      section.fade-up:nth-of-type(2) { animation-delay: 0.3s; }
-      section.fade-up:nth-of-type(3) { animation-delay: 0.5s; }
+
+      /* Fondo con degradado sutil */
+      body {
+        background: radial-gradient(
+          circle at top center,
+          #0f111a 0%,
+          #08090e 100%
+        );
+        color: #e5e7eb;
+      }
+
+      /* Header fijo */
+      header.hero-fixed {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(10, 10, 15, 0.8);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+      }
     </style>
   </head>
 
-  <body class="bg-[#0a0a0f] text-gray-200 font-sans">
-    <Navbar />
+  <body class="font-sans text-gray-200">
+    <!-- HEADER FIJO CON NAVBAR Y PRESENTACIÓN -->
+    <header class="hero-fixed">
+      <Navbar />
 
-    <main class="max-w-7xl mx-auto px-8 pt-40 pb-24 space-y-24">
-
-      <!-- HERO -->
-      <section class="flex flex-col items-start gap-6 fade-up">
-        <h1 class="text-5xl font-extrabold leading-tight text-white">
-          Hola, soy <span class="text-[#00e0ff] drop-shadow-[0_0_10px_#00e0ff99]">Luis</span> 👋
+      <div
+        class="max-w-6xl mx-auto px-6 md:px-8 py-20 text-center fade-up"
+      >
+        <h1 class="text-5xl md:text-6xl font-extrabold text-white">
+          Hola, soy
+          <span class="text-[#00d9ff] drop-shadow-[0_0_12px_#00d9ff88]"
+            >Luis</span
+          >
+          👋
         </h1>
-        <p class="text-2xl text-gray-300 max-w-3xl">
-          Desarrollador Web & Diseñador UI — creo experiencias digitales elegantes, funcionales y centradas en el usuario.
-        </p>
-        <div class="flex gap-4 mt-4 flex-wrap">
-          <a
-            href="/proyectos"
-            class="px-6 py-3 bg-gradient-to-r from-[#00e0ff] to-[#6b5bff] hover:opacity-90 rounded-md text-black font-semibold transition shadow-lg shadow-cyan-500/30"
-          >
-            Ver proyectos
-          </a>
-          <a
-            href="/contacto"
-            class="px-6 py-3 border border-[#00e0ff] text-[#00e0ff] hover:bg-[#00e0ff]/10 rounded-md font-semibold transition"
-          >
-            Contáctame
-          </a>
-        </div>
-      </section>
+       
+      </div>
+    </header>
 
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="max-w-6xl mx-auto px-6 md:px-8 pt-16 pb-24 space-y-28">
       <!-- SOBRE MÍ -->
-      <section class="flex flex-col-reverse md:flex-row items-center gap-10 fade-up bg-[#0f0f18] p-10 rounded-2xl shadow-lg shadow-[#00e0ff]/10">
-        <div class="space-y-5 md:w-2/3">
-          <h2 class="text-3xl font-bold text-[#00e0ff]">👨‍💻 Sobre mí</h2>
-          <p class="text-gray-300 leading-relaxed">
-            Soy un desarrollador que combina la creatividad del diseño con la precisión del código.  
-            Mi meta es crear productos que no solo se vean bien, sino que funcionen con excelencia.
-          </p>
+      <section
+        class="fade-up bg-[#121214] border border-[#1f1f1f] rounded-2xl p-10 shadow-[0_0_25px_rgba(0,217,255,0.08)]"
+      >
+        <div class="flex flex-col md:flex-row items-center gap-10">
+          <div class="space-y-6 md:w-2/3">
+            <h2 class="text-3xl font-bold text-[#00d9ff]">👨‍💻 Sobre mí</h2>
+            <p class="text-gray-300 leading-relaxed">
+              Soy un desarrollador que combina la creatividad del diseño con la
+              precisión del código. Mi meta es crear productos que no solo se
+              vean bien, sino que funcionen con excelencia y transmitan
+              profesionalismo.
+            </p>
 
-          <ul class="text-gray-300 list-disc list-inside space-y-2">
-            <li><span class="text-[#00e0ff] font-semibold">Diseño intuitivo</span> — cada detalle importa.</li>
-            <li><span class="text-[#00e0ff] font-semibold">Código limpio</span> — estructura clara y mantenible.</li>
-            <li><span class="text-[#00e0ff] font-semibold">Rendimiento óptimo</span> — velocidad y fluidez en todas las plataformas.</li>
-            <li><span class="text-[#00e0ff] font-semibold">Colaboración</span> — trabajo en equipo para potenciar ideas.</li>
-          </ul>
+            <ul class="text-gray-300 list-disc list-inside space-y-2">
+              <li>
+                <span class="text-[#00d9ff] font-semibold">Diseño intuitivo</span> — cada detalle importa.
+              </li>
+              <li>
+                <span class="text-[#00d9ff] font-semibold">Código limpio</span> — estructura clara y mantenible.
+              </li>
+              <li>
+                <span class="text-[#00d9ff] font-semibold">Rendimiento óptimo</span> — velocidad y fluidez en todas las plataformas.
+              </li>
+              <li>
+                <span class="text-[#00d9ff] font-semibold">Colaboración</span> — trabajo en equipo para potenciar ideas.
+              </li>
+            </ul>
 
-          <p class="text-gray-300">
-            Siempre estoy aprendiendo nuevas tecnologías y explorando cómo mejorar la experiencia del usuario con cada proyecto.
-          </p>
+            <p class="text-gray-300">
+              Siempre busco mejorar, aprender nuevas tecnologías y optimizar la
+              experiencia de usuario con un enfoque moderno y eficiente.
+            </p>
+          </div>
 
-          <a
-            href="/sobre-mi"
-            class="inline-block mt-4 px-6 py-3 bg-gradient-to-r from-[#00e0ff] to-[#6b5bff] hover:opacity-90 text-black rounded-md font-semibold shadow-md shadow-[#00e0ff]/30 transition"
+          <!-- Imagen decorativa -->
+          <div
+            class="flex justify-center md:justify-end w-full md:w-auto"
           >
-            Leer más
-          </a>
-        </div>
-
-        <!-- Imagen circular -->
-        <div class="flex-shrink-0 relative">
-          <div class="absolute -inset-3 bg-[#00e0ff]/20 blur-3xl rounded-full animate-pulse"></div>
-          <img
-            src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif"
-            alt="Luis trabajando"
-            class="relative w-48 md:w-56 rounded-full shadow-[0_0_25px_#00e0ff55] object-cover border-2 border-[#00e0ff]/40"
-          />
+            <img
+              src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif"
+              alt="Luis trabajando"
+              class="w-52 md:w-60 rounded-full shadow-[0_0_30px_#00d9ff44] border border-[#00d9ff]/40 object-cover"
+            />
+          </div>
         </div>
       </section>
 
-      <!-- FRASE -->
-      <section class="text-center py-16 border-t border-gray-800 fade-up">
-        <blockquote class="text-2xl italic text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          “El diseño es la forma visual de la inteligencia. Crear es mi manera de conectar ideas con experiencias.”
+      <!-- FRASE FINAL -->
+      <section class="text-center py-16 fade-up">
+        <blockquote
+          class="text-2xl italic text-gray-300 leading-relaxed max-w-3xl mx-auto mb-4"
+        >
+          “El diseño es la forma visual de la inteligencia. Crear es mi manera
+          de conectar ideas con experiencias.”
         </blockquote>
-        <p class="mt-4 text-[#00e0ff] font-semibold">– Luis Dev</p>
+        <p class="text-[#00d9ff] font-semibold text-lg">– Luis Dev</p>
       </section>
-
     </main>
 
     <Footer />

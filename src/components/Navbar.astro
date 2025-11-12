@@ -1,0 +1,17 @@
+---
+const links = [
+  { name: "Inicio", href: "/" },
+  { name: "Habilidades", href: "/habilidades" },
+  { name: "Proyectos", href: "/proyectos" },
+  { name: "Contacto", href: "/contacto" },
+];
+---
+
+<nav class="bg-gray-900 text-white p-4 flex justify-between items-center">
+  <h1 class="text-xl font-bold">Mi Blog</h1>
+  <ul class="flex gap-6">
+    {links.map(link => (
+      <li><a href={link.href} class="hover:text-teal-400">{link.name}</a></li>
+    ))}
+  </ul>
+</nav>

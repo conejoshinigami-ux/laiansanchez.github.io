@@ -1,0 +1,31 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+
+
+const projects = [
+  { title: "Portafolio Web", description: "Sitio personal desarrollado con Astro y Tailwind.", link: "#" },
+  { title: "Creacion de pagina web con interledger", description: "Trabajo junto a la appy de wallet.interledger", link: "#" },
+  { title: "Creacion de blog personal en html", description: "Se creo una pagina con mis datos personales, donde mostraba gustos, disgustos, habilidades y experiencias en:.", link: "#" },
+];
+---
+
+<html lang="es">
+  <head><title>Proyectos | Mi Blog</title>
+<meta charset="UTF-8" />
+<meta charset="UTF-8" />
+
+</head>
+  <body class="bg-gray-100 text-gray-800">
+    <Navbar />
+    <section class="p-10">
+      <h2 class="text-4xl font-bold text-center mb-8">Mis Proyectos</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {projects.map(project => <ProjectCard {...project} />)}
+      </div>
+    </section>
+    <Footer />
+  </body>
+</html>

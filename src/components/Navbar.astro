@@ -1,34 +1,20 @@
-<nav id="main-nav" style="position:fixed;top:0;left:0;width:100%;background:rgba(0,0,0,0.7);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.06);z-index:50;box-shadow:0 4px 14px rgba(0,0,0,0.6);">
-  <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:16px 32px;">
-    <a href="/" style="font-size:1.25rem;font-weight:800;color:#2dd4bf;letter-spacing:0.02em;text-decoration:none;transition:color .25s;">
-      <span style="color:#7c3aed;">Luis</span>Dev
+<nav class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-purple-500/20 cyber-shadow">
+  <div class="max-w-6xl mx-auto flex items-center justify-between px-8 h-16">
+
+    <!-- LOGO -->
+    <a href="/" class="text-xl font-extrabold tracking-wider neon-text">
+      <span class="text-purple-400">Luis</span><span class="text-cyan-400">Dev</span>
     </a>
 
-    <ul id="menu" style="display:flex;align-items:center;gap:18px;list-style:none;margin:0;padding:0;">
-      <li><a class="menu-btn" href="/" style="display:inline-block;padding:8px 14px;border-radius:12px;background:linear-gradient(90deg,#06b6d4,#3b82f6);color:#fff;font-weight:600;text-decoration:none;box-shadow:0 6px 18px rgba(59,130,246,0.12);transition:all .25s;">Inicio</a></li>
-      <li><a class="menu-btn" href="/proyectos" style="display:inline-block;padding:8px 14px;border-radius:12px;background:linear-gradient(90deg,#06b6d4,#3b82f6);color:#fff;font-weight:600;text-decoration:none;box-shadow:0 6px 18px rgba(59,130,246,0.12);transition:all .25s;">Proyectos</a></li>
-      <li><a class="menu-btn" href="/habilidades" style="display:inline-block;padding:8px 14px;border-radius:12px;background:linear-gradient(90deg,#06b6d4,#3b82f6);color:#fff;font-weight:600;text-decoration:none;box-shadow:0 6px 18px rgba(59,130,246,0.12);transition:all .25s;">Habilidades</a></li>
-      <li><a class="menu-btn" href="/sobre-mi" style="display:inline-block;padding:8px 14px;border-radius:12px;background:linear-gradient(90deg,#06b6d4,#3b82f6);color:#fff;font-weight:600;text-decoration:none;box-shadow:0 6px 18px rgba(59,130,246,0.12);transition:all .25s;">Sobre mí</a></li>
-      <li><a class="menu-btn" href="/blog" style="display:inline-block;padding:8px 14px;border-radius:12px;background:linear-gradient(90deg,#06b6d4,#3b82f6);color:#fff;font-weight:600;text-decoration:none;box-shadow:0 6px 18px rgba(59,130,246,0.12);transition:all .25s;">Blog</a></li>
-      <li><a class="menu-btn" href="/contacto" style="display:inline-block;padding:8px 14px;border-radius:12px;background:linear-gradient(90deg,#06b6d4,#3b82f6);color:#fff;font-weight:600;text-decoration:none;box-shadow:0 6px 18px rgba(59,130,246,0.12);transition:all .25s;">Contacto</a></li>
+    <!-- MENU -->
+    <ul class="flex items-center gap-5 m-0 p-0 no-bullets">
+      <li><a class="cyber-btn" href="/">Inicio</a></li>
+      <li><a class="cyber-btn" href="/proyectos">Proyectos</a></li>
+      <li><a class="cyber-btn" href="/habilidades">Habilidades</a></li>
+      <li><a class="cyber-btn" href="/sobre-mi">Sobre mí</a></li>
+      <li><a class="cyber-btn" href="/blog">Blog</a></li>
+      <li><a class="cyber-btn" href="/contacto">Contacto</a></li>
     </ul>
+
   </div>
 </nav>
-
-<!-- Pequeña mejora de hover y foco usando CSS en la página (más flexible que inline styles) -->
-<style>
-  /* garantiza que no aparezcan viñetas aunque algo sobrescriba list-style */
-  #menu { list-style: none !important; }
-  /* hover y foco para .menu-btn (usa !important si tu CSS global las pisa) */
-  #menu .menu-btn:hover,
-  #menu .menu-btn:focus {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(59,130,246,0.18) !important;
-    background: linear-gradient(90deg,#7c3aed,#f472b6) !important;
-  }
-  /* responsive: si la pantalla es pequeña, que el menú envuelva y se distribuya */
-  @media (max-width:860px){
-    #menu { gap:10px; flex-wrap:wrap; justify-content:center; }
-    #main-nav div { padding-left:16px;padding-right:16px; }
-  }
-</style>

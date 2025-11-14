@@ -9,21 +9,48 @@ import "../../styles/global.css";
     <meta charset="utf-8" />
     <title>Portfolio Personal | LuisDev</title>
   </head>
-  <body class="bg-black text-gray-100">
+  <body class="bg-black text-gray-200 font-sans">
     <Navbar />
 
-    <main class="max-w-4xl mx-auto px-6 pt-36 pb-20">
-      <h1 class="text-3xl font-bold text-cyan-400 mb-6">Portfolio Personal</h1>
-      <img
-        src="public/portfolio-screenshot.png"
-        alt="Portfolio"
-        class="rounded-lg shadow-lg mb-6"
-      />
-      <p class="text-gray-300 leading-relaxed">
-        Este proyecto representa mi sitio web personal, desarrollado con Astro y TailwindCSS.
-        Incluye una interfaz moderna con transiciones suaves, secciones animadas y un diseño responsive.
-        Además, integra un modo oscuro, optimización SEO y animaciones basadas en Scroll.
+    <main class="max-w-3xl mx-auto px-6 pt-32 pb-20 text-center">
+      <h1 class="text-3xl font-bold text-cyan-400 mb-4">
+        Portfolio Personal
+      </h1>
+
+      <p class="text-gray-400 text-sm mb-8 max-w-xl mx-auto">
+        Un vistazo a mi portafolio personal, creado con <span class="text-cyan-400">Astro</span> y <span class="text-cyan-400">TailwindCSS</span>, 
+        con un diseño moderno, limpio y optimizado para rendimiento y SEO.
       </p>
+
+      <div class="flex justify-center mb-10">
+        <img
+          src="/images/portfolio.png"
+          alt="Vista previa del Portfolio"
+          class="rounded-lg shadow-md w-56 h-auto object-cover opacity-90 hover:opacity-100 transition-all duration-300 border border-cyan-500/20"
+        />
+      </div>
+
+      <div class="space-y-4 text-gray-300 text-sm leading-relaxed text-left mx-auto max-w-xl">
+        <p>
+          Este proyecto fue diseñado para mostrar mis trabajos y habilidades de manera profesional y sencilla.
+          Implementa transiciones suaves, soporte para modo oscuro, y una estructura optimizada para cualquier dispositivo.
+        </p>
+
+        <p>
+          La interfaz se enfoca en la <span class="text-cyan-400">usabilidad</span> y la <span class="text-cyan-400">claridad visual</span>,
+          destacando mis proyectos, blog y formas de contacto con un estilo coherente y moderno.
+        </p>
+      </div>
+
+      <div class="mt-10">
+        <a
+          href="https://tusitio.com"
+          target="_blank"
+          class="inline-block px-6 py-2 bg-cyan-500 hover:bg-cyan-400 text-black text-sm font-semibold rounded-lg shadow-md transition-all"
+        >
+            🌐 Ver Proyecto Completo
+        </a>
+      </div>
     </main>
 
     <Footer />

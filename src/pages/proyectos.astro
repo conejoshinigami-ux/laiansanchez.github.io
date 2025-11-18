@@ -7,28 +7,79 @@ import "../styles/global.css";
 <html lang="es">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Proyectos | LuisDev</title>
+
+    <style>
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-up {
+        opacity: 0;
+        animation: fadeUp 1s ease-out forwards;
+      }
+
+      /* Fondo igual que en Inicio */
+      body {
+        background: radial-gradient(
+          circle at top center,
+          #0f111a 0%,
+          #08090e 100%
+        );
+        color: #e5e7eb;
+      }
+
+      /* Header sticky igual que tu home */
+      header.hero-fixed {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(10, 10, 15, 0.8);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+      }
+    </style>
   </head>
-  <body class="bg-black text-gray-100">
-    <Navbar />
 
-    <main class="max-w-6xl mx-auto px-6 pt-36 pb-24">
-      <h1 class="text-4xl font-bold text-center text-cyan-400 mb-14 tracking-wide">
-        Mis Proyectos
-      </h1>
+  <body class="font-sans text-gray-200">
+    
+    <!-- HEADER STICKY COMO EN TU HOME -->
+    <header class="hero-fixed">
+      <Navbar />
 
-      <!-- Contenedor horizontal -->
+      <div class="max-w-6xl mx-auto px-6 md:px-8 py-12 text-center fade-up">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-white">
+          Mis
+          <span class="text-[#00d9ff] drop-shadow-[0_0_12px_#00d9ff88]">
+            Proyectos
+          </span>
+        </h1>
+      </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="max-w-6xl mx-auto px-6 pt-16 pb-24 fade-up">
+
       <section class="flex flex-wrap justify-center gap-10">
+
         <!-- Proyecto 1 -->
         <div
-          class="bg-gray-900/70 border border-white/10 rounded-xl p-4 w-64 hover:-translate-y-2 transition-all duration-300 hover:shadow-cyan-500/20 text-center"
+          class="bg-[#121214] border border-[#1f1f1f] rounded-xl p-4 w-64 shadow-[0_0_25px_rgba(0,217,255,0.05)] hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,217,255,0.12)] text-center"
         >
           <img
             src="https://images.unsplash.com/photo-1611095973515-5e41e0c9c3f9?auto=format&fit=crop&w=400&q=80"
             alt="Portfolio Personal"
             class="rounded-lg mb-3 h-36 w-full object-cover"
           />
-          <h3 class="text-lg font-semibold text-cyan-400">Portfolio Personal</h3>
+          <h3 class="text-lg font-semibold text-[#00d9ff]">Portfolio Personal</h3>
           <p class="text-sm text-gray-400 mt-1 mb-3">
             Mi web personal moderna con animaciones suaves, modo oscuro y secciones dinámicas.
           </p>
@@ -42,14 +93,14 @@ import "../styles/global.css";
 
         <!-- Proyecto 2 -->
         <div
-          class="bg-gray-900/70 border border-white/10 rounded-xl p-4 w-64 hover:-translate-y-2 transition-all duration-300 hover:shadow-cyan-500/20 text-center"
+          class="bg-[#121214] border border-[#1f1f1f] rounded-xl p-4 w-64 shadow-[0_0_25px_rgba(0,217,255,0.05)] hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,217,255,0.12)] text-center"
         >
           <img
             src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=400&q=80"
             alt="App Finanzas"
             class="rounded-lg mb-3 h-36 w-full object-cover"
           />
-          <h3 class="text-lg font-semibold text-cyan-400">App de Finanzas</h3>
+          <h3 class="text-lg font-semibold text-[#00d9ff]">App de Finanzas</h3>
           <p class="text-sm text-gray-400 mt-1 mb-3">
             Aplicación moderna para gestionar ingresos, gastos y estadísticas financieras.
           </p>
@@ -63,14 +114,14 @@ import "../styles/global.css";
 
         <!-- Proyecto 3 -->
         <div
-          class="bg-gray-900/70 border border-white/10 rounded-xl p-4 w-64 hover:-translate-y-2 transition-all duration-300 hover:shadow-cyan-500/20 text-center"
+          class="bg-[#121214] border border-[#1f1f1f] rounded-xl p-4 w-64 shadow-[0_0_25px_rgba(0,217,255,0.05)] hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,217,255,0.12)] text-center"
         >
           <img
             src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=400&q=80"
             alt="Dashboard Empresarial"
             class="rounded-lg mb-3 h-36 w-full object-cover"
           />
-          <h3 class="text-lg font-semibold text-cyan-400">Dashboard Empresarial</h3>
+          <h3 class="text-lg font-semibold text-[#00d9ff]">Dashboard Empresarial</h3>
           <p class="text-sm text-gray-400 mt-1 mb-3">
             Panel interactivo con métricas en tiempo real y diseño minimalista para empresas.
           </p>
@@ -81,6 +132,7 @@ import "../styles/global.css";
             Ver más
           </a>
         </div>
+
       </section>
     </main>
 

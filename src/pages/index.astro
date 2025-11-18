@@ -11,38 +11,100 @@ import Footer from "../components/Footer.astro";
     <title>Inicio | LuisDev</title>
 
     <style>
+      /* ===== ANIMACIONES ===== */
+
       @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
-      .fade-up {
-        opacity: 0;
-        animation: fadeUp 1s ease-out forwards;
+      .fade-up { animation: fadeUp 1s ease-out forwards; opacity: 0; }
+
+      @keyframes pulseNeon {
+        0%,100% { box-shadow: 0 0 20px #00d9ff88; }
+        50%     { box-shadow: 0 0 35px #00d9ffaa; }
       }
 
-      /* Fondo con degradado sutil */
+      .pulse {
+        animation: pulseNeon 2.2s infinite ease-in-out;
+      }
+
+      /* Botón glitch */
+      @keyframes glitch {
+        0% { transform: translate(0); }
+        20% { transform: translate(-2px, 2px); }
+        40% { transform: translate(2px, -2px); }
+        60% { transform: translate(-2px, -2px); }
+        80% { transform: translate(2px, 2px); }
+        100% { transform: translate(0); }
+      }
+
+      .glitch:hover {
+        animation: glitch 0.25s steps(2, end);
+      }
+
+      /* Partículas cyberpunk */
+      .particles {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        z-index: 0;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: #00d9ff;
+        border-radius: 50%;
+        opacity: 0.45;
+        box-shadow: 0 0 12px #00d9ff;
+        animation: floatUp 8s linear infinite;
+      }
+
+      @keyframes floatUp {
+        from { transform: translateY(100vh); }
+        to   { transform: translateY(-10vh); }
+      }
+
+      /* Botón cyberpunk */
+      .cyberpunk-btn {
+        padding: 18px 60px;
+        font-size: 1.4rem;
+        font-weight: 800;
+        border-radius: 14px;
+        background: linear-gradient(90deg, #00d9ff, #7a00ff);
+        color: white;
+        border: 2px solid #00d9ff;
+        text-shadow: 0 0 10px #fff;
+        box-shadow: 0 0 22px #00d9ff88, 0 0 35px #7a00ff88;
+        position: relative;
+        overflow: hidden;
+        transition: 0.25s ease-out;
+      }
+
+      .cyberpunk-btn:hover {
+        transform: scale(1.12);
+        box-shadow: 0 0 40px #00f0ffcc, 0 0 50px #7a00ffcc;
+      }
+
+      /* ===== BODY ===== */
       body {
-        background: radial-gradient(
-          circle at top center,
-          #0f111a 0%,
-          #08090e 100%
-        );
-        color: #e5e7eb;
+        background: radial-gradient(circle at top center, #0f111a, #08090e);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
       }
 
-      /* Header fijo */
+      main { flex: 1; } /* EL FOOTER SIEMPRE ABAJO */
+
       header.hero-fixed {
         position: sticky;
         top: 0;
         z-index: 20;
-        background: rgba(10, 10, 15, 0.8);
+        background: rgba(10,10,15,0.75);
         backdrop-filter: blur(10px);
         border-bottom: 1px solid rgba(0, 217, 255, 0.1);
       }
@@ -50,86 +112,78 @@ import Footer from "../components/Footer.astro";
   </head>
 
   <body class="font-sans text-gray-200">
-    <!-- HEADER FIJO CON NAVBAR Y PRESENTACIÓN -->
+
+    <!-- HEADER FIJO -->
     <header class="hero-fixed">
       <Navbar />
 
-      <div
-        class="max-w-6xl mx-auto px-6 md:px-8 py-20 text-center fade-up"
-      >
+      <div class="max-w-6xl mx-auto px-6 md:px-8 py-14 text-center fade-up">
         <h1 class="text-5xl md:text-6xl font-extrabold text-white">
-          Hola, soy
-          <span class="text-[#00d9ff] drop-shadow-[0_0_12px_#00d9ff88]"
-            >Luis</span
-          >
-          👋
+          Hola, soy <span class="text-[#00d9ff] drop-shadow-[0_0_12px_#00d9ff88]">Luis</span> 👋
         </h1>
-       
       </div>
     </header>
 
     <!-- CONTENIDO PRINCIPAL -->
-    <main class="max-w-6xl mx-auto px-6 md:px-8 pt-16 pb-24 space-y-28">
-      <!-- SOBRE MÍ -->
-      <section
-        class="fade-up bg-[#121214] border border-[#1f1f1f] rounded-2xl p-10 shadow-[0_0_25px_rgba(0,217,255,0.08)]"
-      >
-        <div class="flex flex-col md:flex-row items-center gap-10">
-          <div class="space-y-6 md:w-2/3">
-            <h2 class="text-3xl font-bold text-[#00d9ff]">👨‍💻 Sobre mí</h2>
-            <p class="text-gray-300 leading-relaxed">
-              Soy un desarrollador que combina la creatividad del diseño con la
-              precisión del código. Mi meta es crear productos que no solo se
-              vean bien, sino que funcionen con excelencia y transmitan
-              profesionalismo.
-            </p>
+    <main class="relative max-w-6xl mx-auto px-6 md:px-8 pb-24">
 
-            <ul class="text-gray-300 list-disc list-inside space-y-2">
-              <li>
-                <span class="text-[#00d9ff] font-semibold">Diseño intuitivo</span> — cada detalle importa.
-              </li>
-              <li>
-                <span class="text-[#00d9ff] font-semibold">Código limpio</span> — estructura clara y mantenible.
-              </li>
-              <li>
-                <span class="text-[#00d9ff] font-semibold">Rendimiento óptimo</span> — velocidad y fluidez en todas las plataformas.
-              </li>
-              <li>
-                <span class="text-[#00d9ff] font-semibold">Colaboración</span> — trabajo en equipo para potenciar ideas.
-              </li>
-            </ul>
-
-            <p class="text-gray-300">
-              Siempre busco mejorar, aprender nuevas tecnologías y optimizar la
-              experiencia de usuario con un enfoque moderno y eficiente.
-            </p>
-          </div>
-
-          <!-- Imagen decorativa -->
+      <!-- PARTÍCULAS CYBERPUNK -->
+      <div class="particles">
+        {Array.from({ length: 30 }).map((_, i) => (
           <div
-            class="flex justify-center md:justify-end w-full md:w-auto"
-          >
-            <img
-              src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif"
-              alt="Luis trabajando"
-              class="w-52 md:w-60 rounded-full shadow-[0_0_30px_#00d9ff44] border border-[#00d9ff]/40 object-cover"
-            />
-          </div>
+            class="particle"
+            style={`left:${Math.random() * 100}%; animation-delay:${i * 0.4}s;`}
+          ></div>
+        ))}
+      </div>
+
+      <!-- SECCIÓN NEGRA GRANDE -->
+      <section
+        class="relative fade-up bg-[#121214]/90 border border-[#1f1f1f] rounded-2xl p-20 pb-36 shadow-[0_0_25px_rgba(0,217,255,0.08)] text-center mt-[10vh] backdrop-blur-md"
+        style="z-index: 5;"
+      >
+
+        <!-- IMAGEN -->
+        <div class="w-full flex justify-center mb-12">
+          <img
+            src="/images/laian.jpg"
+            class="pulse rounded-full object-cover object-center border border-[#00d9ff]/70 shadow-[0_0_22px_#00d9ffaa]"
+            style="width: 190px; height: 190px;"
+          />
         </div>
+
+        <!-- TEXTOS -->
+        <p class="text-gray-300 leading-relaxed max-w-2xl mx-auto text-lg mb-6">
+          Hola, soy <span class="text-[#00d9ff] font-semibold">Luis Antonio Sánchez Sánchez</span>,
+          estudiante de Ingeniería en Sistemas Computacionales. Me apasiona la ciberseguridad,
+          interfaces futuristas y el diseño cyberpunk.
+        </p>
+
+        <p class="text-gray-400 leading-relaxed max-w-2xl mx-auto text-md mb-14">
+          Me gusta construir sistemas elegantes, funcionales y visualmente llamativos que combinan
+          tecnología con creatividad.
+        </p>
+
+        <!-- BOTONES CYBERPUNK -->
+        <div class="mt-10 flex justify-center gap-20">
+          <a href="/sobre-mi" class="cyberpunk-btn glitch">Sobre mí</a>
+          <a href="/contacto" class="cyberpunk-btn glitch">Contáctame</a>
+        </div>
+
       </section>
 
-      <!-- FRASE FINAL -->
+      <!-- FRASE -->
       <section class="text-center py-16 fade-up">
-        <blockquote
-          class="text-2xl italic text-gray-300 leading-relaxed max-w-3xl mx-auto mb-4"
-        >
-          “El diseño es la forma visual de la inteligencia. Crear es mi manera
-          de conectar ideas con experiencias.”
+        <blockquote class="text-2xl italic text-gray-300 leading-relaxed max-w-3xl mx-auto mb-4">
+          “El diseño es la forma visual de la inteligencia.”
         </blockquote>
         <p class="text-[#00d9ff] font-semibold text-lg">– Luis Dev</p>
       </section>
+
     </main>
 
+    <!-- FOOTER FIJO ABAJO SIEMPRE -->
     <Footer />
+
   </body>
 </html>

@@ -11,51 +11,93 @@ import "../styles/global.css";
     <title>Sobre mí | LuisDev</title>
 
     <style>
+      /* ===== ANIMACIONES ===== */
       @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(25px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .fade-up { animation: fadeUp 1s ease-out forwards; opacity: 0; }
+
+      /* ===== BURBUJAS ===== */
+      .particles {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        z-index: 0;
+      }
+      .particle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: #00d9ff;
+        border-radius: 50%;
+        opacity: 0.45;
+        box-shadow: 0 0 10px #00d9ff;
+        animation: floatUp 10s linear infinite;
+      }
+      @keyframes floatUp {
+        from { transform: translateY(100vh); }
+        to   { transform: translateY(-10vh); }
       }
 
-      .fade-up {
-        opacity: 0;
-        animation: fadeUp 1s ease-out forwards;
-      }
-
-      /* Fondo igual al Home */
+      /* ===== FONDO ===== */
       body {
-        background: radial-gradient(
-          circle at top center,
-          #0f111a 0%,
-          #08090e 100%
-        );
-        color: #e5e7eb;
+        background: radial-gradient(circle at top center, #0f111a, #08090e);
       }
 
       /* Header Sticky */
       header.hero-fixed {
         position: sticky;
         top: 0;
-        z-index: 20;
-        background: rgba(10, 10, 15, 0.8);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+        z-index: 30;
+        background: rgba(10,10,15,0.75);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0,217,255,0.12);
       }
+
+      /* ===== TARJETAS ===== */
+      .about-card {
+        width: 300px;
+        background: #121214;
+        border: 1px solid #1f1f1f;
+        padding: 24px;
+        border-radius: 18px;
+        text-align: center;
+        transition: 0.35s ease-out;
+        box-shadow: 0 0 25px rgba(0,217,255,0.05);
+      }
+      .about-card:hover {
+        transform: translateY(-10px);
+        border-color: #00d9ff55;
+        box-shadow: 0 0 35px rgba(0,217,255,0.22);
+      }
+      .about-icon {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        margin-bottom: 14px;
+        opacity: 0.9;
+      }
+
+      .section-title {
+        font-size: 2.3rem;
+        font-weight: 700;
+        text-align: center;
+        color: #00d9ff;
+        margin-top: 80px;
+        margin-bottom: 40px;
+      }
+
     </style>
   </head>
 
   <body class="font-sans text-gray-200">
 
-    <!-- HEADER FIJO -->
+    <!-- HEADER -->
     <header class="hero-fixed">
       <Navbar />
 
-      <div class="max-w-6xl mx-auto px-6 md:px-8 py-12 text-center fade-up">
+      <div class="max-w-6xl mx-auto px-6 md:px-8 pt-20 pb-14 text-center fade-up">
         <h1 class="text-5xl md:text-6xl font-extrabold text-white">
           Sobre
           <span class="text-[#00d9ff] drop-shadow-[0_0_12px_#00d9ff88]">mí</span>
@@ -63,30 +105,130 @@ import "../styles/global.css";
       </div>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="max-w-5xl mx-auto px-8 pt-20 pb-20 space-y-20 fade-up">
+    <!-- BURBUJAS DE FONDO -->
+    <div class="particles">
+      {Array.from({ length: 35 }).map((_, i) => (
+        <div
+          class="particle"
+          style={`left:${Math.random() * 100}%; animation-delay:${i * 0.4}s;`}
+        ></div>
+      ))}
+    </div>
 
-        <div class="space-y-6">
-          <p class="text-gray-300 text-lg leading-relaxed">
-            Soy Luis, un desarrollador web apasionado por crear experiencias
-            digitales bellas, intuitivas y rápidas.
-          </p>
+    <!-- CONTENIDO -->
+    <main class="max-w-5xl mx-auto px-6 pb-32 fade-up" style="margin-top: 18vh;">
 
-          <p class="text-gray-400 leading-relaxed">
-            Mi enfoque se centra en la estética visual, el rendimiento y la
-            usabilidad. Me gusta trabajar con tecnologías modernas como Astro,
-            Tailwind y JavaScript, creando interfaces modernas que combinan
-            diseño y funcionalidad.
-          </p>
+      <!-- TEXTO PERSONAL -->
+      <div class="space-y-6 text-center max-w-3xl mx-auto">
+        <p class="text-gray-300 text-lg leading-relaxed">
+          Soy Luis, un desarrollador web apasionado por crear experiencias digitales limpias,
+          dinámicas y con una estética moderna que combine diseño y funcionalidad.
+        </p>
 
-          <p class="text-gray-400 leading-relaxed">
-            Disfruto transformar ideas en interfaces claras, fluidas y limpias,
-            con un estilo minimalista y profesional.
+        <p class="text-gray-400 leading-relaxed">
+          Me encanta el desarrollo visual, la optimización del rendimiento y trabajar con tecnologías
+          como Astro, Tailwind y JavaScript. Busco crear interfaces fluidas, profesionales y con un estilo minimalista.
+        </p>
+
+        <p class="text-gray-400 leading-relaxed">
+          También disfruto aprender nuevas tecnologías como Linux, automatización y herramientas de productividad.
+        </p>
+      </div>
+
+      <!-- COSAS QUE ME GUSTAN -->
+      <h2 class="section-title">Cosas que me gustan</h2>
+
+      <section class="flex flex-wrap justify-center gap-12">
+
+        <!-- Volibol -->
+        <div class="about-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/861/861512.png" class="about-icon" />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">Jugar Volibol</h3>
+          <p class="text-gray-400 text-sm mt-2">
+            Mi deporte favorito. Me encanta la energía, el ritmo y el trabajo en equipo.
           </p>
         </div>
 
-      </div>
+        <!-- Música -->
+        <div class="about-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/727/727245.png" class="about-icon" />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">Escuchar Música</h3>
+          <p class="text-gray-400 text-sm mt-2">
+            Me acompaña siempre. Me inspira mientras programo o aprendo nuevas cosas.
+          </p>
+        </div>
 
+        <!-- Linux -->
+        <div class="about-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" class="about-icon" />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">Aprender Linux</h3>
+          <p class="text-gray-400 text-sm mt-2">
+            Me gusta explorar distros, aprender comandos y mejorar mi entorno de trabajo.
+          </p>
+        </div>
+
+        <!-- Videojuegos -->
+        <div class="about-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/3089/3089758.png" class="about-icon" />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">Videojuegos</h3>
+          <p class="text-gray-400 text-sm mt-2">
+            Me relajan y disfruto competir, especialmente en Call of Duty.
+          </p>
+        </div>
+
+        <!-- Motos -->
+        <div class="about-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/743/743131.png" class="about-icon" />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">Motocicletas</h3>
+          <p class="text-gray-400 text-sm mt-2">
+            La sensación de libertad, velocidad y adrenalina es incomparable.
+          </p>
+        </div>
+
+        <!-- Clima frío -->
+        <div class="about-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/414/414927.png" class="about-icon" />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">Clima Frío</h3>
+          <p class="text-gray-400 text-sm mt-2">
+            Me encanta el ambiente gris, tranquilo y fresco. Ideal para programar.
+          </p>
+        </div>
+
+      </section>
+
+      <!-- COSAS QUE NO ME GUSTAN -->
+      <h2 class="section-title">Cosas que no me gustan</h2>
+
+      <section class="flex flex-wrap justify-center gap-12">
+
+        <!-- Futbol -->
+        <div class="about-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" class="about-icon" />
+          <h3 class="text-xl font-semibold text-[#ff4f4f]">El Fútbol</h3>
+          <p class="text-gray-400 text-sm mt-2">
+            Simplemente no conecta conmigo, no es mi estilo de deporte.
+          </p>
+        </div>
+
+        <!-- Ser muy sociable -->
+        <div class="about-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/4081/4081961.png" class="about-icon" />
+          <h3 class="text-xl font-semibold text-[#ff4f4f]">Ser Muy Sociable</h3>
+          <p class="text-gray-400 text-sm mt-2">
+            Prefiero la tranquilidad, mi espacio y rodearme de pocas personas.
+          </p>
+        </div>
+
+        <!-- Banda -->
+        <div class="about-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/727/727218.png" class="about-icon" />
+          <h3 class="text-xl font-semibold text-[#ff4f4f]">La Banda</h3>
+          <p class="text-gray-400 text-sm mt-2">
+            No es un género que disfrute, no va conmigo.
+          </p>
+        </div>
+
+      </section>
     </main>
 
     <Footer />

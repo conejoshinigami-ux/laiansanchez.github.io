@@ -9,105 +9,30 @@ import Footer from "../components/Footer.astro";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio | LuisDev</title>
-
     <style>
       /* ===== ANIMACIONES ===== */
-
-      @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
+      @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
       .fade-up { animation: fadeUp 1s ease-out forwards; opacity: 0; }
 
-      @keyframes pulseNeon {
-        0%,100% { box-shadow: 0 0 20px #00d9ff88; }
-        50%     { box-shadow: 0 0 35px #00d9ffaa; }
-      }
+      @keyframes pulseNeon { 0%,100% { box-shadow: 0 0 20px #00d9ff88; } 50% { box-shadow: 0 0 35px #00d9ffaa; } }
+      .pulse { animation: pulseNeon 2.2s infinite ease-in-out; }
 
-      .pulse {
-        animation: pulseNeon 2.2s infinite ease-in-out;
-      }
-
-      /* Botón glitch */
-      @keyframes glitch {
-        0% { transform: translate(0); }
-        20% { transform: translate(-2px, 2px); }
-        40% { transform: translate(2px, -2px); }
-        60% { transform: translate(-2px, -2px); }
-        80% { transform: translate(2px, 2px); }
-        100% { transform: translate(0); }
-      }
-
-      .glitch:hover {
-        animation: glitch 0.25s steps(2, end);
-      }
+      @keyframes glitch { 0% { transform: translate(0); } 20% { transform: translate(-2px, 2px); } 40% { transform: translate(2px, -2px); } 60% { transform: translate(-2px, -2px); } 80% { transform: translate(2px, 2px); } 100% { transform: translate(0); } }
+      .glitch:hover { animation: glitch 0.25s steps(2, end); }
 
       /* Partículas cyberpunk */
-      .particles {
-        position: absolute;
-        inset: 0;
-        overflow: hidden;
-        z-index: 0;
-      }
-
-      .particle {
-        position: absolute;
-        width: 4px;
-        height: 4px;
-        background: #00d9ff;
-        border-radius: 50%;
-        opacity: 0.45;
-        box-shadow: 0 0 12px #00d9ff;
-        animation: floatUp 8s linear infinite;
-      }
-
-      @keyframes floatUp {
-        from { transform: translateY(100vh); }
-        to   { transform: translateY(-10vh); }
-      }
+      .particles { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+      .particle { position: absolute; width: 4px; height: 4px; background: #00d9ff; border-radius: 50%; opacity: 0.45; box-shadow: 0 0 12px #00d9ff; animation: floatUp 8s linear infinite; }
+      @keyframes floatUp { from { transform: translateY(100vh); } to { transform: translateY(-10vh); } }
 
       /* Botón cyberpunk */
-      .cyberpunk-btn {
-        padding: 18px 60px;
-        font-size: 1.4rem;
-        font-weight: 800;
-        border-radius: 14px;
-        background: linear-gradient(90deg, #00d9ff, #7a00ff);
-        color: white;
-        border: 2px solid #00d9ff;
-        text-shadow: 0 0 10px #fff;
-        box-shadow: 0 0 22px #00d9ff88, 0 0 35px #7a00ff88;
-        position: relative;
-        overflow: hidden;
-        transition: 0.25s ease-out;
-      }
-
-      .cyberpunk-btn:hover {
-        transform: scale(1.12);
-        box-shadow: 0 0 40px #00f0ffcc, 0 0 50px #7a00ffcc;
-      }
+      .cyberpunk-btn { padding: 18px 60px; font-size: 1.4rem; font-weight: 800; border-radius: 14px; background: linear-gradient(90deg, #00d9ff, #7a00ff); color: white; border: 2px solid #00d9ff; text-shadow: 0 0 10px #fff; box-shadow: 0 0 22px #00d9ff88, 0 0 35px #7a00ff88; position: relative; overflow: hidden; transition: 0.25s ease-out; }
+      .cyberpunk-btn:hover { transform: scale(1.12); box-shadow: 0 0 40px #00f0ffcc, 0 0 50px #7a00ffcc; }
 
       /* ===== BODY ===== */
-      body {
-        background: radial-gradient(circle at top center, #0f111a, #08090e);
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
-
-      main { flex: 1; } /* EL FOOTER SIEMPRE ABAJO */
-
-      header.hero-fixed {
-        position: sticky;
-        top: 0;
-        z-index: 20;
-        background: rgba(10,10,15,0.75);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(0, 217, 255, 0.1);
-      }
+      body { background: radial-gradient(circle at top center, #0f111a, #08090e); margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; }
+      main { flex: 1; }
+      header.hero-fixed { position: sticky; top: 0; z-index: 20; background: rgba(10,10,15,0.75); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0, 217, 255, 0.1); }
     </style>
   </head>
 
@@ -116,7 +41,6 @@ import Footer from "../components/Footer.astro";
     <!-- HEADER FIJO -->
     <header class="hero-fixed">
       <Navbar />
-
       <div class="max-w-6xl mx-auto px-6 md:px-8 py-14 text-center fade-up">
         <h1 class="text-5xl md:text-6xl font-extrabold text-white">
           Hola, soy <span class="text-[#00d9ff] drop-shadow-[0_0_12px_#00d9ff88]">Luis</span> 👋
@@ -129,21 +53,17 @@ import Footer from "../components/Footer.astro";
 
       <!-- PARTÍCULAS CYBERPUNK -->
       <div class="particles">
+        <!-- Astro no permite JSX, usamos un loop de Astro -->
         {Array.from({ length: 30 }).map((_, i) => (
-          <div
-            class="particle"
-            style={`left:${Math.random() * 100}%; animation-delay:${i * 0.4}s;`}
-          ></div>
+          <div class="particle" style={`left:${Math.random() * 100}%; animation-delay:${i * 0.4}s;`}></div>
         ))}
       </div>
 
-      <!-- SECCIÓN NEGRA GRANDE -->
+      <!-- SECCIÓN SOBRE MÍ AMPLIADA -->
       <section
         class="relative fade-up bg-[#121214]/90 border border-[#1f1f1f] rounded-2xl p-20 pb-36 shadow-[0_0_25px_rgba(0,217,255,0.08)] text-center mt-[10vh] backdrop-blur-md"
         style="z-index: 5;"
       >
-
-        <!-- IMAGEN -->
         <div class="w-full flex justify-center mb-12">
           <img
             src="/images/laian.jpg"
@@ -152,24 +72,30 @@ import Footer from "../components/Footer.astro";
           />
         </div>
 
-        <!-- TEXTOS -->
         <p class="text-gray-300 leading-relaxed max-w-2xl mx-auto text-lg mb-6">
           Hola, soy <span class="text-[#00d9ff] font-semibold">Luis Antonio Sánchez Sánchez</span>,
           estudiante de Ingeniería en Sistemas Computacionales. Me apasiona la ciberseguridad,
-          interfaces futuristas y el diseño cyberpunk.
+          el desarrollo de proyectos digitales y las interfaces futuristas inspiradas en el estilo
+          <span class="text-[#00d9ff]"> cyberpunk</span> y <span class="text-[#00d9ff]">retrowave</span>.
+        </p>
+
+        <p class="text-gray-400 leading-relaxed max-w-2xl mx-auto text-md mb-6">
+          Me encanta aprender nuevas tecnologías, automatizar procesos y experimentar con
+          <span class="text-[#00d9ff]"> diseño visual</span> y <span class="text-[#00d9ff]">experiencia de usuario</span>.
+          Busco siempre combinar funcionalidad, creatividad y estética para que mis proyectos
+          sean atractivos y eficientes.
         </p>
 
         <p class="text-gray-400 leading-relaxed max-w-2xl mx-auto text-md mb-14">
-          Me gusta construir sistemas elegantes, funcionales y visualmente llamativos que combinan
-          tecnología con creatividad.
+         En este blog comparto mis proyectos, descubrimientos y todo lo que me inspira en tecnología y diseño digital. 
+         También disfruto aprendiendo de otros,
+          colaborando en equipo y explorando nuevas formas de crear soluciones innovadoras.
         </p>
 
-        <!-- BOTONES CYBERPUNK -->
         <div class="mt-10 flex justify-center gap-20">
           <a href="/sobre-mi" class="cyberpunk-btn glitch">Sobre mí</a>
           <a href="/contacto" class="cyberpunk-btn glitch">Contáctame</a>
         </div>
-
       </section>
 
       <!-- FRASE -->
@@ -182,7 +108,6 @@ import Footer from "../components/Footer.astro";
 
     </main>
 
-    <!-- FOOTER FIJO ABAJO SIEMPRE -->
     <Footer />
 
   </body>

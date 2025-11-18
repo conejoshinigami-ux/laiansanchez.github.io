@@ -1,0 +1,227 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyectos | LuisDev</title>
+
+    <style>
+      /* ====== ANIMACIONES ====== */
+
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(25px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .fade-up { animation: fadeUp 1s ease-out forwards; opacity: 0; }
+
+
+      /* ====== BURBUJAS CYBERPUNK ====== */
+      .particles {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        z-index: 0;
+      }
+
+      .particle {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background: #00d9ff;
+        border-radius: 50%;
+        opacity: 0.45;
+        box-shadow: 0 0 10px #00d9ff;
+        animation: floatUp 8s linear infinite;
+      }
+
+      @keyframes floatUp {
+        from { transform: translateY(100vh); }
+        to   { transform: translateY(-10vh); }
+      }
+
+
+      /* ====== FONDO ====== */
+      body {
+        background: radial-gradient(circle at top center, #0f111a, #08090e);
+        color: #e5e7eb;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1; /* asegura que el footer quede SIEMPRE abajo */
+        position: relative;
+        z-index: 10;
+      }
+
+      /* Header sticky */
+      header.hero-fixed {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(10,10,15,0.75);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+      }
+
+      /* Tarjetas estilo EXACTO a tu diseño */
+      .project-card {
+        background: #121214;
+        border: 1px solid #1f1f1f;
+        border-radius: 18px;
+        width: 330px;
+        padding: 22px;
+        transition: 0.35s ease-out;
+        box-shadow: 0 0 25px rgba(0, 217, 255, 0.05);
+        position: relative;
+        z-index: 20;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 0 38px rgba(0,217,255,0.22);
+        border-color: #00d9ff55;
+      }
+
+      .tech-icon {
+        height: 34px;
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+
+  <body class="font-sans text-gray-200">
+
+    <!-- HEADER FIJO -->
+    <header class="hero-fixed">
+      <Navbar />
+
+      <div class="max-w-6xl mx-auto px-6 md:px-8 pt-20 pb-14 text-center fade-up">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-white">
+          Mis <span class="text-[#00d9ff] drop-shadow-[0_0_12px_#00d9ff88]">Proyectos</span>
+        </h1>
+      </div>
+    </header>
+
+    <!-- BURBUJAS CYBERPUNK -->
+    <div class="particles">
+      {Array.from({ length: 40 }).map((_, i) => (
+        <div
+          class="particle"
+          style={`left:${Math.random() * 100}%; animation-delay:${i * 0.35}s;`}
+        ></div>
+      ))}
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="max-w-6xl mx-auto px-6 pb-32 fade-up" style="margin-top: 18vh;">
+
+      <section class="flex flex-wrap justify-center gap-12">
+
+        <!-- PELEA DE ROBOTS -->
+        <div class="project-card text-center">
+          <img
+            src="/public/images/robots.jpg"
+            class="rounded-lg mb-4 w-full h-40 object-cover"
+          />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">Pelea de Robots</h3>
+          <p class="text-gray-400 text-sm mt-2 mb-4">
+            Simulación de combate entre robots autónomos con físicas e IA básica.
+          </p>
+
+          <div class="flex justify-center gap-4 mt-3 mb-5">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="tech-icon"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="tech-icon"/>
+          </div>
+
+        
+        </div>
+
+        <!-- HACKATON CEFODEM -->
+        <div class="project-card text-center">
+          <img
+            src="/public/images/hackaton.jpg"
+            class="rounded-lg mb-4 w-full h-40 object-cover"
+          />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">Hackatón CEFODEM Toluca</h3>
+          <p class="text-gray-400 text-sm mt-2 mb-4">
+            Competencia tecnológica desarrollando soluciones en tiempo récord.
+          </p>
+
+          <div class="flex justify-center gap-4 mt-3 mb-5">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="tech-icon"/>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="tech-icon"/>
+            <img src="/public/images/interledger.png" class="tech-icon"/>
+          </div>
+
+         
+        </div>
+
+        <!-- TALLER DE LINUX -->
+        <div class="project-card text-center">
+          <img
+            src="/public/images/kalilinux.png"
+            class="rounded-lg mb-4 w-full h-40 object-cover"
+          />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">Taller de Linux</h3>
+          <p class="text-gray-400 text-sm mt-2 mb-4">
+            Comandos esenciales, terminal, permisos, procesos y administración.
+          </p>
+
+          <div class="flex justify-center gap-4 mt-3 mb-5">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" class="tech-icon"/>
+          </div>
+
+        </div>
+
+        <!-- TALLER DE REDES -->
+        <div class="project-card text-center">
+          <img
+            src="/public/images/redes1.jpg"
+            class="rounded-lg mb-4 w-full h-40 object-cover"
+          />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">Taller de Redes</h3>
+          <p class="text-gray-400 text-sm mt-2 mb-4">
+            Protocolos, cableado estructurado, topologías y configuración.
+          </p>
+
+          <div class="flex justify-center gap-4 mt-3 mb-5">
+            <img src="https://cdn-icons-png.flaticon.com/512/3208/3208727.png" class="tech-icon"/>
+          </div>
+
+      
+        </div>
+
+        <!-- CIRCUS CHARLIE -->
+        <div class="project-card text-center">
+          <img
+            src="/public/images/circus.jpg"
+            class="rounded-lg mb-4 w-full h-40 object-cover"
+          />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">Circus Charlie (Godot)</h3>
+          <p class="text-gray-400 text-sm mt-2 mb-4">
+            Remake del clásico Circus Charlie en Godot Engine.
+          </p>
+
+          <div class="flex justify-center gap-4 mt-3 mb-5">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg" class="tech-icon"/>
+          </div>
+
+         
+        </div>
+
+      </section>
+    </main>
+
+    <!-- FOOTER (NO SE TOCA JAMÁS) -->
+    <Footer />
+  </body>
+</html>

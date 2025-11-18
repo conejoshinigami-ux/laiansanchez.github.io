@@ -1,0 +1,244 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habilidades | LuisDev</title>
+
+    <style>
+      /* ===== ANIMACIONES ===== */
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(25px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .fade-up { animation: fadeUp 1s ease-out forwards; opacity: 0; }
+
+      /* ===== BURBUJAS CYBERPUNK ===== */
+      .particles {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        z-index: 0;
+      }
+      .particle {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background: #00d9ff;
+        border-radius: 50%;
+        opacity: 0.45;
+        box-shadow: 0 0 10px #00d9ff;
+        animation: floatUp 8s linear infinite;
+      }
+      @keyframes floatUp {
+        from { transform: translateY(100vh); }
+        to   { transform: translateY(-10vh); }
+      }
+
+      /* ===== FONDO ===== */
+      body {
+        background: radial-gradient(circle at top center, #0f111a, #08090e);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        color: #e5e7eb;
+      }
+      main {
+        flex: 1;
+        position: relative;
+      }
+
+      /* Header */
+      header.hero-fixed {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(10,10,15,0.8);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0,217,255,0.1);
+      }
+
+      /* ===== TARJETAS ===== */
+      .skill-card {
+        background: #121214;
+        border: 1px solid #1f1f1f;
+        border-radius: 18px;
+        padding: 25px;
+        width: 260px;
+        transition: 0.35s ease-out;
+        text-align: center;
+        box-shadow: 0 0 25px rgba(0,217,255,0.05);
+      }
+      .skill-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 0 38px rgba(0,217,255,0.22);
+        border-color: #00d9ff66;
+      }
+      .skill-icon {
+        width: 55px;
+        margin: 0 auto 12px;
+        opacity: 0.9;
+      }
+      .skill-desc {
+        margin-top: 10px;
+        font-size: 0.9rem;
+        color: #bbbbbb;
+        line-height: 1.45rem;
+      }
+
+      /* ===== SOFT SKILLS ===== */
+      .soft-card {
+        background: #141414;
+        border: 1px solid #1b1b1b;
+        border-radius: 18px;
+        padding: 22px;
+        width: 240px;
+        transition: 0.35s ease-out;
+        text-align: center;
+      }
+      .soft-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0 30px rgba(0,217,255,0.18);
+        border-color: #00d9ff55;
+      }
+      .soft-icon {
+        width: 48px;
+        opacity: 0.85;
+        margin: 0 auto 10px;
+      }
+    </style>
+  </head>
+
+  <body class="font-sans text-gray-200">
+
+    <!-- HEADER -->
+    <header class="hero-fixed">
+      <Navbar />
+
+      <div class="max-w-6xl mx-auto px-6 md:px-8 pt-20 pb-14 text-center fade-up">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-white">
+          Mis <span class="text-[#00d9ff] drop-shadow-[0_0_12px_#00d9ff88]">Habilidades</span>
+        </h1>
+      </div>
+    </header>
+
+    <!-- BURBUJAS -->
+    <div class="particles">
+      {Array.from({ length: 40 }).map((_, i) => (
+        <div
+          class="particle"
+          style={`left:${Math.random() * 100}%; animation-delay:${i * 0.35}s;`}
+        ></div>
+      ))}
+    </div>
+
+    <!-- CONTENIDO -->
+    <main class="max-w-7xl mx-auto px-6 pb-32 fade-up" style="margin-top: 18vh;">
+
+      <!-- ===== HABILIDADES TÉCNICAS ===== -->
+      <h2 class="text-3xl font-bold text-[#00d9ff] text-center mb-10">Habilidades Técnicas</h2>
+
+      <section class="flex flex-wrap justify-center gap-12 mb-24">
+
+        <!-- HTML -->
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="skill-icon" />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">HTML5</h3>
+          <p class="skill-desc">Estructuras limpias y semánticas para interfaces modernas.</p>
+        </div>
+
+        <!-- CSS -->
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="skill-icon" />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">CSS / Tailwind</h3>
+          <p class="skill-desc">Diseños responsivos y UI con estilos minimalistas y eficientes.</p>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="skill-icon" />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">JavaScript</h3>
+          <p class="skill-desc">Interactividad, lógica, APIs y manipulación del DOM.</p>
+        </div>
+
+        <!-- React -->
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="skill-icon" />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">React</h3>
+          <p class="skill-desc">Componentes dinámicos, estado y desarrollo modular.</p>
+        </div>
+
+        <!-- Astro -->
+        <div class="skill-card">
+          <img src="https://astro.build/assets/press/astro-icon-light.svg" class="skill-icon" />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">Astro</h3>
+          <p class="skill-desc">Sitios ultra rápidos con renderizado híbrido.</p>
+        </div>
+
+        <!-- Linux -->
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" class="skill-icon" />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">Linux</h3>
+          <p class="skill-desc">Comandos, administración básica y uso avanzado de terminal.</p>
+        </div>
+
+        <!-- Python -->
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="skill-icon" />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">Python</h3>
+          <p class="skill-desc">Automatización, scripts, análisis y lógica clara.</p>
+        </div>
+
+        <!-- MySQL -->
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="skill-icon" />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">MySQL</h3>
+          <p class="skill-desc">Consultas, relaciones, normalización y diseño de BD.</p>
+        </div>
+
+        <!-- Illustrator -->
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-line.svg" class="skill-icon" />
+          <h3 class="text-xl font-semibold text-[#00d9ff]">Adobe Illustrator</h3>
+          <p class="skill-desc">Diseño vectorial, logos, ilustraciones y gráficos limpios.</p>
+        </div>
+
+      </section>
+
+      <!-- ===== SOFT SKILLS ===== -->
+      <h2 class="text-3xl font-bold text-[#00d9ff] text-center mb-10">Soft Skills</h2>
+
+      <section class="flex flex-wrap justify-center gap-12">
+
+        <div class="soft-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png" class="soft-icon" />
+          <h3 class="text-lg text-[#00d9ff] font-semibold">Trabajo en equipo</h3>
+        </div>
+
+        <div class="soft-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/1754/1754301.png" class="soft-icon" />
+          <h3 class="text-lg text-[#00d9ff] font-semibold">Comunicación</h3>
+        </div>
+
+        <div class="soft-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" class="soft-icon" />
+          <h3 class="text-lg text-[#00d9ff] font-semibold">Creatividad</h3>
+        </div>
+
+        <div class="soft-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/4712/4712100.png" class="soft-icon" />
+          <h3 class="text-lg text-[#00d9ff] font-semibold">Resolución de problemas</h3>
+        </div>
+
+      </section>
+
+    </main>
+
+    <Footer />
+  </body>
+</html>
